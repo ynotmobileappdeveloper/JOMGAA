@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=92:8F:06:DD:71:0C:79:E2:8F:5C:71:D7:4E:BB:95:16:6E:4E:E3:3A%3Bcom.ynot.u_fashion.View
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.ynot.u_fashion.View
+
+    SHA-1 certificate fingerprint:
+    92:8F:06:DD:71:0C:79:E2:8F:5C:71:D7:4E:BB:95:16:6E:4E:E3:3A
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDS3gHDjJ_4ntkZgGFRNg5rSJK29D0XqeQ</string>
+</resources>

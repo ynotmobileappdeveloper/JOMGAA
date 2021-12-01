@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.OrderStatusItem">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <View
+            android:id="@+id/orderplaceddot"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@color/text_color"
+            app:layout_constraintBottom_toTopOf="@+id/orderapprooved"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/orderplaced"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bggreenorderstatus2"
+            app:layout_constraintBottom_toTopOf="@+id/orderplaceddot"
+            app:layout_constraintEnd_toEndOf="@+id/orderplaceddot"
+            app:layout_constraintStart_toStartOf="@+id/orderplaceddot" />
+
+        <View
+            android:id="@+id/orderapprooved"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/graybg2"
+            app:layout_constraintBottom_toTopOf="@+id/orderapprooveddot"
+            app:layout_constraintEnd_toEndOf="@+id/orderplaceddot"
+            app:layout_constraintStart_toStartOf="@+id/orderplaceddot" />
+
+        <View
+            android:id="@+id/orderapprooveddot"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@color/text_color"
+            app:layout_constraintBottom_toTopOf="@+id/orderassigned"
+            app:layout_constraintEnd_toEndOf="@+id/orderapprooved"
+            app:layout_constraintStart_toStartOf="@+id/orderapprooved" />
+
+        <View
+            android:id="@+id/orderassigned"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/graybg2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/orderapprooveddot"
+            app:layout_constraintStart_toStartOf="@+id/orderapprooveddot"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+            app:layout_constraintVertical_bias="0.39" />
+
+        <View
+            android:id="@+id/orderassigneddot"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@color/text_color"
+            app:layout_constraintBottom_toTopOf="@+id/orderdispatched"
+            app:layout_constraintEnd_toEndOf="@+id/orderapprooveddot"
+            app:layout_constraintStart_toStartOf="@+id/orderapprooveddot"
+            app:layout_constraintTop_toBottomOf="@+id/orderassigned" />
+
+        <View
+            android:id="@+id/orderdispatched"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/graybg2"
+            app:layout_constraintEnd_toEndOf="@+id/orderassigneddot"
+            app:layout_constraintStart_toStartOf="@+id/orderassigneddot"
+            app:layout_constraintTop_toBottomOf="@+id/orderassigneddot" />
+
+        <View
+            android:id="@+id/orderdispatcheddot"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@color/text_color"
+            app:layout_constraintEnd_toEndOf="@+id/orderassigneddot"
+            app:layout_constraintStart_toStartOf="@+id/orderassigneddot"
+            app:layout_constraintTop_toBottomOf="@+id/orderdispatched" />
+
+        <View
+            android:id="@+id/orderdeliverd"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/graybg2"
+            app:layout_constraintEnd_toEndOf="@+id/orderdispatcheddot"
+            app:layout_constraintStart_toStartOf="@+id/orderdispatcheddot"
+            app:layout_constraintTop_toBottomOf="@+id/orderdispatcheddot" />
+
+        <ImageButton
+            android:id="@+id/call"
+            android:layout_width="50dp"
+            android:layout_height="@dimen/_20ssp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bggreenorderstatus"
+            android:src="@drawable/callwhite"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderassigneddot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/textView13"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Order Placed"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/orderplaced"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/orderplaced" />
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Order Approved"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderapprooveddot"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/orderapprooved" />
+
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Delivery Assigned"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderassigneddot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/orderassigneddot"
+            app:layout_constraintTop_toTopOf="@+id/orderassigned" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="50dp"
+            android:layout_height="@dimen/_20ssp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bggreenorderstatus"
+            android:fontFamily="@font/visbyroundcf_extrabold"
+            android:text="X"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/orderplaceddot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/textView18"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Order Dispatched"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderdispatcheddot"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/orderassigneddot" />
+
+        <TextView
+            android:id="@+id/textView20"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Delivered"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/orderdeliverd"
+            app:layout_constraintStart_toStartOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/orderdispatcheddot" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderplaced"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderplaced"
+            app:srcCompat="@color/checkout_back" />
+
+        <TextView
+            android:id="@+id/ordertime"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="09.00 AM"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderplaceddot"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderapprooved"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderapprooved"
+            app:srcCompat="@color/checkout_back" />
+
+        <TextView
+            android:id="@+id/approvetime"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="09.00 AM"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderapprooveddot"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/assigntime"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Ajay K"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderassigneddot"
+            app:layout_constraintStart_toEndOf="@+id/imageView7" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderdispatched"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderdispatched"
+            app:srcCompat="@color/checkout_back" />
+
+        <TextView
+            android:id="@+id/disptime"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="12.00 PM"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orderdispatcheddot"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderdeliverd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/orderdeliverd"
+            app:srcCompat="@color/checkout_back" />
+
+        <TextView
+            android:id="@+id/delivarytime"
+            style="@style/Visbyroundcf_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="01.00 PM"
+            android:textColor="#131313"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/orderdeliverd"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/btmcurvedbg"
+            android:gravity="center_vertical"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    style="@style/Visbyroundcf_extrabold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center"
+                    android:text="Order Status"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/back"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView35"
+            style="@style/Visbyroundcf_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/visbyroundcf_light"
+            android:text="03 JULY 2020"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/ordertime"
+            app:layout_constraintStart_toStartOf="@+id/ordertime" />
+
+        <TextView
+            android:id="@+id/textView36"
+            style="@style/Visbyroundcf_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/visbyroundcf_light"
+            android:text="03 JULY 2020"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/approvetime" />
+
+        <TextView
+            android:id="@+id/textView37"
+            style="@style/Visbyroundcf_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/visbyroundcf_light"
+            android:text="Delivery Man"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/assigntime"
+            app:layout_constraintStart_toStartOf="@+id/assigntime" />
+
+        <TextView
+            android:id="@+id/textView38"
+            style="@style/Visbyroundcf_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/visbyroundcf_light"
+            android:text="04 JULY 2020"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/disptime"
+            app:layout_constraintStart_toStartOf="@+id/disptime" />
+
+        <TextView
+            android:id="@+id/textView39"
+            style="@style/Visbyroundcf_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/visbyroundcf_light"
+            android:text="04 JULY 2020"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toTopOf="@+id/delivarytime"
+            app:layout_constraintStart_toStartOf="@+id/delivarytime" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

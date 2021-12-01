@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ynot.jomgaa">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".View.LoginOTPPhoneVerification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.TodaysDeals"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar.Activities" />
+        <activity
+            android:name=".View.ProductsPage"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar.Activities" />
+        <activity
+            android:name=".View.OrderDescription"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar.Activities" />
+        <activity
+            android:name=".View.OrderPageSuccess"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.EditAddress"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".View.MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".View.Forgotpassword"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.Categoryitem"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.Checkout"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.AddressPage"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.OrderStatusItem"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.ConfirmAddress"
+            android:theme="@style/AppTheme.NoActionBar.Activities" />
+        <activity
+            android:name=".View.ProductDescription"
+            android:theme="@style/AppTheme.NoActionBar.Activities" />
+        <activity
+            android:name=".View.Changepassword"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.MyOrderDetails"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.AddAddress"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar.Home" />
+        <activity
+            android:name=".View.PhoneVerification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Signup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.BannerActivity"
+            android:theme="@style/AppTheme.NoActionBar.Banner" />
+        <activity
+            android:name=".View.SplashActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar.Home"
+            android:windowSoftInputMode="adjustNothing" />
+    </application>
+
+</manifest>

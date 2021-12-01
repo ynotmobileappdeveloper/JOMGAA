@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/bgskiproundwhite.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/btnbg.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/custom_password_eye.xml" value="0.2169230769230769" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/default_dot.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/graybg.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/ic_visibility.xml" value="0.2169230769230769" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/search_background.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/square_bg.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/submit_button.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/drawable/tab_selector.xml" value="0.2203125" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_add_address.xml" value="0.21" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_banner.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_categoryitem.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_changepassword.xml" value="0.21" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_checkout.xml" value="0.18" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_confirm_address.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_forgotpassword.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_my_order_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_order_description.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_phone_verification.xml" value="0.22" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_product_description.xml" value="0.2" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_products_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_todays_deals.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/address_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/allproductlayout.xml" value="0.22" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/category_layout.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_cart.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_purchase.xml" value="0.33" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_shops.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_view_pager1.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/fragment_view_pager2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/itemlayout.xml" value="0.33" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/order_desc.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/orders_layout2.xml" value="0.33849129593810445" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/slider.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/sub_cat_layout.xml" value="0.22" />
+        <entry key="..\:/Projects/Jomgaa/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/address_back.xml" value="0.15185185185185185" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/bg_round.xml" value="0.15185185185185185" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/bggreenorderstatus.xml" value="0.15185185185185185" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/cart_menu.xml" value="0.15185185185185185" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.15185185185185185" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/drawable/ic_noaddress.xml" value="0.1125" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_add_address.xml" value="0.18" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_address_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_banner.xml" value="0.12092391304347826" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_categoryitem.xml" value="0.1" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_checkout.xml" value="0.14" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_confirm_address.xml" value="0.1" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_login.xml" value="0.17708333333333334" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_order_page_success.xml" value="0.14" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_phone_verification.xml" value="0.1" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_product_description.xml" value="0.16" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_profile.xml" value="0.18" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_signup.xml" value="0.25" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/activity_splash.xml" value="0.17708333333333334" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/address_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/allproductlayout.xml" value="0.18" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/category_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/fragment_cart.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/fragment_shops.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/itemlayout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/layout/orders_layout2.xml" value="0.22" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/UFashion/app/src/main/res/menu/menu_cart.xml" value="0.18" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

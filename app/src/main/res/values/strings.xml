@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JOMGAA</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="navigation_drawer_open">OPEN</string>
+    <string name="navigation_drawer_close">CLOSE</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>

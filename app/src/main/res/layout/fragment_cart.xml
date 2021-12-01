@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".View.CartFragment">
+    <ImageView
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/nodata_found"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_rec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="-4dp"
+        android:layout_marginBottom="3dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="7dp"
+        android:visibility="visible"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0.5dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/minimum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/arsenal"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/checkout"
+                    style="@style/Visbyroundcf_extrabold"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/btnbg"
+                    android:enabled="false"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text=" Checkout"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- <RelativeLayout
+         android:id="@+id/nodata"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:elevation="8dp"
+         android:visibility="gone">
+
+         <ImageView
+             android:id="@+id/img"
+             android:layout_width="70dp"
+             android:layout_height="70dp"
+             android:layout_centerInParent="true"
+             android:alpha="0.4"
+             android:src="@drawable/u" />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/img"
+             android:layout_centerHorizontal="true"
+             android:layout_marginTop="10dp"
+             android:fontFamily="@font/metro_reg"
+             android:text="Your Cart is Empty !!" />
+
+     </RelativeLayout>-->
+
+
+</RelativeLayout>
