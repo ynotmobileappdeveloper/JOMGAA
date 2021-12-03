@@ -279,6 +279,8 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onResponse(Call<CategoryModel> call, Response<CategoryModel> response) {
                 if (response.body().getStatus()) {
+                    cat_model = new ArrayList<>();
+                    tabLayout.removeAllTabs();
                     tabLayout.addTab(tabLayout.newTab().setText("All"));
                     cat_model = response.body().getCategory();
                     Log.e("cat_id", cat_model.get(0).getCatId());
