@@ -35,6 +35,10 @@ public class CartData {
     @Expose
     private Integer favStatus;
 
+    @SerializedName("product_id")
+    @Expose
+    private String product_id;
+
     public String getCartId() {
         return cartId;
     }
@@ -113,5 +117,13 @@ public class CartData {
 
     public void setFavStatus(Integer favStatus) {
         this.favStatus = favStatus;
+    }
+
+    public String getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
     }
 }

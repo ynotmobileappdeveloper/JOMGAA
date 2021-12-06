@@ -148,16 +148,13 @@ public class ProductDescription extends AppCompatActivity {
 
                 if (currentSizes.size() > 0) {
                     for (int i = 0; i < currentSizes.size(); i++) {
-                        Log.e("size", currentSizes.get(i).getSize());
                         if (size_id.equals(currentSizes.get(i).getId())) {
                             Log.e("same", "inside");
-                            Log.e("cart_quantity", currentSizes.get(i).getCart_quantity());
                             count.setText(currentSizes.get(i).getCart_quantity());
                             count_layout.setVisibility(View.VISIBLE);
                             addtocart.setVisibility(View.GONE);
                             quantity = Integer.parseInt(currentSizes.get(i).getCart_quantity());
                             pos = i;
-                            Log.e("pos", String.valueOf(pos));
                             return;
 
                         } /*else {
@@ -404,6 +401,9 @@ public class ProductDescription extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 i.putExtra("cart", "cart");
                 startActivity(i);
+                break;
+            case android.R.id.home:
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -40,7 +40,7 @@ import java.util.Map;
 public class ConfirmAddress extends AppCompatActivity {
     Button checkout, addnewAddress;
     Button cod, gpay;
-    String pmode = "COD";
+    String pmode = "1";
     Button cancel, order;
     TextView total, discount, delivery, est_total, count;
     String lat, lon, place;
@@ -98,7 +98,7 @@ public class ConfirmAddress extends AppCompatActivity {
         cod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pmode = "COD";
+                pmode = "1";
                 cod.setBackgroundResource(R.drawable.btnbg);
                 gpay.setBackgroundResource(R.drawable.btnbgstrock2);
 
@@ -108,7 +108,7 @@ public class ConfirmAddress extends AppCompatActivity {
         cod_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pmode = "COD";
+                pmode = "1";
                 cod.setBackgroundResource(R.drawable.btnbg);
                 gpay.setBackgroundResource(R.drawable.btnbgstrock2);
             }
@@ -116,7 +116,7 @@ public class ConfirmAddress extends AppCompatActivity {
         gpay_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pmode = "ONLINE";
+                pmode = "2";
                 gpay.setBackgroundResource(R.drawable.btnbg);
                 cod.setBackgroundResource(R.drawable.btnbgstrock2);
             }
@@ -124,7 +124,7 @@ public class ConfirmAddress extends AppCompatActivity {
         gpay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pmode = "ONLINE";
+                pmode = "2";
                 gpay.setBackgroundResource(R.drawable.btnbg);
                 cod.setBackgroundResource(R.drawable.btnbgstrock2);
 
@@ -207,6 +207,7 @@ public class ConfirmAddress extends AppCompatActivity {
                 params.put("address_id", add_id);
                 params.put("payment_id", "0");
                 params.put("coupon_code", cp_code);
+                params.put("payment_mode", pmode);
                 params.put("coupon_amount", cp_amount);
                 params.put("delivery_charge", d_charge);
                 params.put("grand_total", grand_total);

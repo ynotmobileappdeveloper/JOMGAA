@@ -20,7 +20,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -126,7 +125,7 @@ public class CartFragment extends Fragment {
                                 int newcount = current_count + 1;
                                 int stock = Integer.parseInt(list.getStock());
                                 if (newcount < stock) {
-                                    countupdate(list.getCartId(), String.valueOf(newcount));
+                                    countupdate(list.getProduct_id(), String.valueOf(newcount), list.getSizeId());
                                 } else {
                                     Toast.makeText(getContext(), "Out of Stock !!", Toast.LENGTH_SHORT).show();
                                 }
@@ -138,7 +137,7 @@ public class CartFragment extends Fragment {
                                 int current_count = Integer.parseInt(list.getQuantity());
                                 if (current_count > 1) {
                                     int newcount = current_count - 1;
-                                    countupdate(list.getCartId(), String.valueOf(newcount));
+                                    countupdate(list.getProduct_id(), String.valueOf(newcount), list.getSizeId());
                                 }
 
                             }
@@ -183,7 +182,7 @@ public class CartFragment extends Fragment {
 
     }
 
-    private void countupdate(final String id, final String count) {
+    private void countupdate(final String id, final String count, String sizeId) {
         progressDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.UPDATE_COUNT,
                 new com.android.volley.Response.Listener<String>() {
@@ -224,6 +223,7 @@ public class CartFragment extends Fragment {
                 Map<String, String> params = new HashMap<>();
                 params.put("item_id", id);
                 params.put("new_count", count);
+                params.put("size_id", sizeId);
                 params.put("user_id", SharedPrefManager.getInstatnce(getContext()).getUser().getUser_id());
 
                 Log.e("update_count_params", String.valueOf(params));
