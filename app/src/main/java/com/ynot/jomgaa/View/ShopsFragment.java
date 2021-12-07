@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ynot.jomgaa.Adapter.MyFavAdapter;
@@ -43,6 +44,7 @@ public class ShopsFragment extends Fragment {
     MyFavAdapter allDataAdapter;
     List<Favourite> model = new ArrayList<>();
     ProgressDialog progressDialog;
+    ImageView nodata;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +63,7 @@ public class ShopsFragment extends Fragment {
             }
         });
         recyclerView = root.findViewById(R.id.myfavrec);
+        nodata = root.findViewById(R.id.nodata);
         GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -79,8 +82,15 @@ public class ShopsFragment extends Fragment {
                 progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     if (response.body().getstatus()) {
+                        Log.e("in", "in");
+                        nodata.setVisibility(View.GONE);
                         model = new ArrayList<>();
                         model = response.body().getFavourite();
+                        if (model.size() > 0) {
+                            nodata.setVisibility(View.GONE);
+                        } else {
+                            nodata.setVisibility(View.VISIBLE);
+                        }
                         allDataAdapter = new MyFavAdapter(getActivity(), model, new MyFavAdapter.ItemClick() {
                             @Override
                             public void FavClick(Favourite list, int position) {
@@ -96,8 +106,10 @@ public class ShopsFragment extends Fragment {
                         });
                         recyclerView.setAdapter(allDataAdapter);
                     } else {
+                        Log.e("in", "else");
                         model = new ArrayList<>();
                         recyclerView.setAdapter(null);
+                        nodata.setVisibility(View.VISIBLE);
                     }
                 }
 

@@ -3,6 +3,7 @@ package com.ynot.jomgaa.Web;
 import com.ynot.jomgaa.FunctionModels.CartItems;
 import com.ynot.jomgaa.FunctionModels.CategoryModel;
 import com.ynot.jomgaa.FunctionModels.FavModel;
+import com.ynot.jomgaa.FunctionModels.FeatureModel;
 import com.ynot.jomgaa.FunctionModels.HomeSlider;
 import com.ynot.jomgaa.FunctionModels.NormalData;
 import com.ynot.jomgaa.FunctionModels.OrderItems;
@@ -110,4 +111,9 @@ public interface Api {
     Call<NormalData> ChangePassword(@Field("old_pass") String old,
                                     @Field("new_pass") String new_pass,
                                     @Field("user_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("get_app_feature")
+    Call<FeatureModel> GetAppFeature();
+
 }

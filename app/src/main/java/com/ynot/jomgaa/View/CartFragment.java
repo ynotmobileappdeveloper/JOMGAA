@@ -124,7 +124,9 @@ public class CartFragment extends Fragment {
                                 //   int price_total = Integer.parseInt(model.get(position).getPrice());
                                 int newcount = current_count + 1;
                                 int stock = Integer.parseInt(list.getStock());
-                                if (newcount < stock) {
+                                Log.e("stock", String.valueOf(stock));
+                                Log.e("new count", String.valueOf(newcount));
+                                if (newcount <= stock) {
                                     countupdate(list.getProduct_id(), String.valueOf(newcount), list.getSizeId());
                                 } else {
                                     Toast.makeText(getContext(), "Out of Stock !!", Toast.LENGTH_SHORT).show();
@@ -139,7 +141,6 @@ public class CartFragment extends Fragment {
                                     int newcount = current_count - 1;
                                     countupdate(list.getProduct_id(), String.valueOf(newcount), list.getSizeId());
                                 }
-
                             }
                         });
                         cart_rec.setAdapter(adapter);

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -24,15 +25,18 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.ynot.jomgaa.Adapter.AllDataAdapter;
+import com.ynot.jomgaa.Adapter.FeatureAdapter;
 import com.ynot.jomgaa.Adapter.SubCategoryAdapter;
 import com.ynot.jomgaa.Adapter.ViewPager_Adapter;
 import com.ynot.jomgaa.FunctionModels.CategoryModel;
+import com.ynot.jomgaa.FunctionModels.FeatureModel;
 import com.ynot.jomgaa.FunctionModels.HomeSlider;
 import com.ynot.jomgaa.FunctionModels.NormalData;
 import com.ynot.jomgaa.FunctionModels.ProductsModel;
 import com.ynot.jomgaa.FunctionModels.SubcategoryModel;
 import com.ynot.jomgaa.Model.AllproductsModel;
 import com.ynot.jomgaa.Model.Category;
+import com.ynot.jomgaa.Model.FeatureList;
 import com.ynot.jomgaa.Model.Images;
 import com.ynot.jomgaa.Model.Products;
 import com.ynot.jomgaa.Model.Subcategory;
@@ -89,6 +93,9 @@ public class DashboardFragment extends Fragment {
     List<Products> model = new ArrayList<>();
     AllDataAdapter adapter;
     TextView deals;
+    RecyclerView feature_rec;
+    List<FeatureList> featuremodel = new ArrayList<>();
+    FeatureAdapter featureAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -109,6 +116,8 @@ public class DashboardFragment extends Fragment {
         recyclerView = root.findViewById(R.id.recyclerView);
         todays_rec = root.findViewById(R.id.todays_rec);
         deals = root.findViewById(R.id.deals);
+        feature_rec = root.findViewById(R.id.feature_rec);
+        feature_rec.setLayoutManager(new LinearLayoutManager(getContext()));
         GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(linearLayoutManager);
         todays_rec.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -208,8 +217,37 @@ public class DashboardFragment extends Fragment {
             }
         }, DELAY_MS, PERIOD_MS);
 
-
+        GetAppFeature();
         return root;
+
+
+    }
+
+    private void GetAppFeature() {
+        Retrofit retrofit = commonFunction.createRetrofitObjectWithHeader(Constants.API_BASE_URL);
+        Api api = retrofit.create(Api.class);
+        api.GetAppFeature().enqueue(new Callback<FeatureModel>() {
+            @Override
+            public void onResponse(Call<FeatureModel> call, Response<FeatureModel> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().isStatus()) {
+                        featuremodel = response.body().getList();
+                        featureAdapter = new FeatureAdapter(getContext(), featuremodel, new FeatureAdapter.ItemClick() {
+                            @Override
+                            public void Click(FeatureList list) {
+
+                            }
+                        });
+                        feature_rec.setAdapter(featureAdapter);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FeatureModel> call, Throwable t) {
+
+            }
+        });
 
 
     }

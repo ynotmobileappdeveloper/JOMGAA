@@ -196,7 +196,6 @@ public class ProductDescription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 quantity++;
-                Log.e("quantity", String.valueOf(quantity));
                 add_to_cart();
             }
         });
