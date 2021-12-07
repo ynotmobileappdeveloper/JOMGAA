@@ -112,7 +112,6 @@ public interface Api {
                                     @Field("new_pass") String new_pass,
                                     @Field("user_id") String user_id);
 
-    @FormUrlEncoded
     @POST("get_app_feature")
     Call<FeatureModel> GetAppFeature();
 
