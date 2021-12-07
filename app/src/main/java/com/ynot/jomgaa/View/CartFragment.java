@@ -196,7 +196,6 @@ public class CartFragment extends Fragment {
 
                             if (ob.getBoolean("status")) {
                                 adapter.notifyDataSetChanged();
-                                Toast.makeText(activity, "Item Quantity Changed", Toast.LENGTH_SHORT).show();
                                 get_cart_items();
 
                             } else {

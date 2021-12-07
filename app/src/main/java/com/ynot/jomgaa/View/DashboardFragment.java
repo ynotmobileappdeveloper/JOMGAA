@@ -283,7 +283,6 @@ public class DashboardFragment extends Fragment {
                     tabLayout.removeAllTabs();
                     tabLayout.addTab(tabLayout.newTab().setText("All"));
                     cat_model = response.body().getCategory();
-                    Log.e("cat_id", cat_model.get(0).getCatId());
                     for (int i = 0; i < cat_model.size(); i++) {
                         tabLayout.addTab(tabLayout.newTab().setText(cat_model.get(i).getTitle()));
                     }

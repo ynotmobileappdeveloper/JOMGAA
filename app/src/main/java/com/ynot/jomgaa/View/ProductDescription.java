@@ -267,7 +267,6 @@ public class ProductDescription extends AppCompatActivity {
             public void onResponse(Call<NormalData> call, Response<NormalData> response) {
                 progressDialog.dismiss();
                 if (response.body().isStatus()) {
-                    Toast.makeText(getApplicationContext(), "Item Quantity Changed !", Toast.LENGTH_SHORT).show();
                     count.setText(String.valueOf(quantity));
                     getDescription();
                     cart_count();

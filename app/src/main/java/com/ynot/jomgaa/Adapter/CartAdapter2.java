@@ -43,12 +43,6 @@ public class CartAdapter2 extends RecyclerView.Adapter<CartAdapter2.MyCViewHolde
 
         CartData list = model.get(position);
         holder.size.setText("Size :" + list.getSize());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                context.startActivity(new Intent(context, ProductDescription.class));
-            }
-        });
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
