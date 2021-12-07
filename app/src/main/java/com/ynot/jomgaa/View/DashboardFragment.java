@@ -235,7 +235,10 @@ public class DashboardFragment extends Fragment {
                         featureAdapter = new FeatureAdapter(getContext(), featuremodel, new FeatureAdapter.ItemClick() {
                             @Override
                             public void Click(FeatureList list) {
-
+                                Intent i = new Intent(getContext(), Categoryitem.class);
+                                i.putExtra("cat_id", list.getId());
+                                i.putExtra("name", "Sub Category");
+                                startActivity(i);
                             }
                         });
                         feature_rec.setAdapter(featureAdapter);

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ynot.jomgaa.Adapter.AllDataAdapter;
@@ -35,6 +36,7 @@ public class Categoryitem extends AppCompatActivity {
     ProgressDialog progressDialog;
     String cat_id;
     TextView name;
+    ImageView nodata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class Categoryitem extends AppCompatActivity {
             }
         });
         name = findViewById(R.id.textView19);
+        nodata = findViewById(R.id.nodata);
         name.setText(getIntent().getStringExtra("name"));
         cat_id = getIntent().getStringExtra("cat_id");
         recyclerView = findViewById(R.id.catrec);
@@ -69,7 +72,12 @@ public class Categoryitem extends AppCompatActivity {
                 progressDialog.dismiss();
                 if (response.body().getStatus()) {
                     sub_model = response.body().getSubcategory();
-                    Log.e("sub", sub_model.toString());
+                    if (sub_model.size() > 0) {
+                        nodata.setVisibility(View.GONE);
+                    } else {
+                        nodata.setVisibility(View.VISIBLE);
+                    }
+
                     allDataAdapter = new SubCatAdapter(getApplicationContext(), sub_model, new SubCatAdapter.ItemClick() {
                         @Override
                         public void Click(Subcategory list) {
@@ -81,6 +89,8 @@ public class Categoryitem extends AppCompatActivity {
 
                     });
                     recyclerView.setAdapter(allDataAdapter);
+                } else {
+                    nodata.setVisibility(View.VISIBLE);
                 }
             }
 
