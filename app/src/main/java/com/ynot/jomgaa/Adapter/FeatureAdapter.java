@@ -56,12 +56,15 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
         Glide.with(context).load(list.getImage()).addListener(new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                holder.nodata.setVisibility(View.VISIBLE);
+                holder.progressBar.setVisibility(View.GONE);
                 return false;
             }
 
             @Override
             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                 holder.progressBar.setVisibility(View.GONE);
+                holder.nodata.setVisibility(View.GONE);
                 return false;
             }
         }).into(holder.image);
@@ -73,13 +76,14 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image;
+        ImageView image, nodata;
         CardView card;
         ProgressBar progressBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
+            nodata = itemView.findViewById(R.id.nodata);
             card = itemView.findViewById(R.id.card);
             progressBar = itemView.findViewById(R.id.progressBar);
         }

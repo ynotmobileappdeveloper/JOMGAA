@@ -21,6 +21,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY" />
+            <ImageView
+                android:id="@+id/nodata"
+                android:padding="10dp"
+                android:alpha="0.4"
+                android:src="@drawable/u"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
             <ProgressBar
                 android:id="@+id/progressBar"
