@@ -286,12 +286,14 @@ public class DashboardFragment extends Fragment {
     private void get_sub_category() {
         progressDialog.show();
         sub_model = new ArrayList<>();
+        Log.e("cat_id", cat_id);
         Call<SubcategoryModel> call = RetrofitClient.getInstance().getApi().GetSubcategory(cat_id);
         call.enqueue(new Callback<SubcategoryModel>() {
             @Override
             public void onResponse(Call<SubcategoryModel> call, Response<SubcategoryModel> response) {
                 progressDialog.dismiss();
                 if (response.body().getStatus()) {
+                    seeall.setVisibility(View.VISIBLE);
                     sub_model = response.body().getSubcategory();
                     allDataAdapter = new SubCategoryAdapter(getActivity(), sub_model, new SubCategoryAdapter.ItemClick() {
                         @Override
@@ -304,6 +306,9 @@ public class DashboardFragment extends Fragment {
 
                     }, "home");
                     recyclerView.setAdapter(allDataAdapter);
+                } else {
+                    recyclerView.setAdapter(null);
+                    seeall.setVisibility(View.GONE);
                 }
             }
 
