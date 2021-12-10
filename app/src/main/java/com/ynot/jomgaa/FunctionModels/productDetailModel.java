@@ -3,6 +3,7 @@ package com.ynot.jomgaa.FunctionModels;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.ynot.jomgaa.Model.CurrentSize;
+import com.ynot.jomgaa.Model.ImageModel;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class productDetailModel {
     @SerializedName("current_size")
     @Expose
     private List<CurrentSize> currentSizes = null;
+
+    @SerializedName("image")
+    @Expose
+    private List<ImageModel> images = null;
+
 
     public boolean isStatus() {
         return status;
@@ -92,5 +98,13 @@ public class productDetailModel {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public List<ImageModel> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImageModel> images) {
+        this.images = images;
     }
 }

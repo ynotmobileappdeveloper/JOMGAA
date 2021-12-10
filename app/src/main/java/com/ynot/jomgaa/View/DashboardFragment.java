@@ -399,7 +399,7 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ProductsModel> call, Throwable t) {
-
+                Log.e("inside", "inside");
             }
         });
     }

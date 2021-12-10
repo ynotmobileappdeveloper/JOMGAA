@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -34,10 +35,14 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+import com.ynot.jomgaa.Adapter.ProductViewPager_Adapter;
+import com.ynot.jomgaa.Adapter.ViewPager_Adapter;
 import com.ynot.jomgaa.FunctionModels.NormalData;
 import com.ynot.jomgaa.FunctionModels.SizeSpinner;
 import com.ynot.jomgaa.FunctionModels.productDetailModel;
 import com.ynot.jomgaa.Model.CurrentSize;
+import com.ynot.jomgaa.Model.ImageModel;
 import com.ynot.jomgaa.Model.Products;
 import com.ynot.jomgaa.Model.Subcategory;
 import com.ynot.jomgaa.Notification.NotificationCountSetClass;
@@ -77,6 +82,10 @@ public class ProductDescription extends AppCompatActivity {
     List<CurrentSize> currentSizes = new ArrayList<>();
     int pos = -1;
     int cart_count;
+    ViewPager viewPager;
+    List<ImageModel> images = new ArrayList<>();
+    ProductViewPager_Adapter image_adapter;
+    WormDotsIndicator wormDotsIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +95,8 @@ public class ProductDescription extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please Wait...");
         toolbar = findViewById(R.id.toolbar);
+        viewPager = findViewById(R.id.viewpager);
+        wormDotsIndicator = findViewById(R.id.worm_dots_indicator);
 
         name = findViewById(R.id.cat);
         original = findViewById(R.id.original);
@@ -114,18 +125,6 @@ public class ProductDescription extends AppCompatActivity {
         brand.setText(list.getBrand());
         toolbar.setTitle(list.getTitle());
         setSupportActionBar(toolbar);
-        Glide.with(getApplicationContext()).load(list.getImages()).addListener(new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                nodata.setVisibility(View.GONE);
-                return false;
-            }
-        }).into(image);
         price.setText("Rs." + String.format("%.2f", Double.parseDouble(list.getPrice())));
         if (list.getFavStatus().equals("1")) {
             fav.setImageResource(R.drawable.fav);
@@ -290,11 +289,13 @@ public class ProductDescription extends AppCompatActivity {
             @Override
             public void onResponse(Call<productDetailModel> call, Response<productDetailModel> response) {
                 progressDialog.dismiss();
+                Log.e("inside", "ind");
                 if (response.body().isStatus()) {
                     model = new ArrayList<>();
                     currentSizes = new ArrayList<>();
                     size_name = new ArrayList<>();
                     model = response.body().getSize_model();
+                    images = response.body().getImages();
 
                     for (int i = 0; i < model.size(); i++) {
                         size_name.add(model.get(i).getSize());
@@ -313,7 +314,9 @@ public class ProductDescription extends AppCompatActivity {
                         addtocart.setVisibility(View.VISIBLE);
                         count_layout.setVisibility(View.GONE);
                     }*/
-
+                    image_adapter = new ProductViewPager_Adapter(getApplicationContext(), images);
+                    viewPager.setAdapter(image_adapter);
+                    wormDotsIndicator.setViewPager(viewPager);
                     if (!response.body().getDetails().isEmpty()) {
                         details.setText(response.body().getDetails());
                         details.setVisibility(View.VISIBLE);
@@ -341,7 +344,7 @@ public class ProductDescription extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<productDetailModel> call, Throwable t) {
-
+                Log.e("error", t.getMessage());
             }
         });
     }
