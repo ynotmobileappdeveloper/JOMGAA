@@ -251,7 +251,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void openFragment(Fragment homeFragment) {
         final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, homeFragment).commit();
-
     }
 
 
