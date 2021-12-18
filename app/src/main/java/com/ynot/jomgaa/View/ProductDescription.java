@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -66,7 +67,7 @@ import retrofit2.Response;
 
 public class ProductDescription extends AppCompatActivity {
     Toolbar toolbar;
-    TextView name, price, brand;
+    TextView name, price, brand, stock;
     Products list;
     ImageView nodata, image, fav;
     Spinner size_spinner;
@@ -99,6 +100,7 @@ public class ProductDescription extends AppCompatActivity {
         wormDotsIndicator = findViewById(R.id.worm_dots_indicator);
 
         name = findViewById(R.id.cat);
+        stock = findViewById(R.id.stock);
         original = findViewById(R.id.original);
         color = findViewById(R.id.color);
         addtocart = findViewById(R.id.addtocart);
@@ -336,6 +338,16 @@ public class ProductDescription extends AppCompatActivity {
                         price.setText("Rs." + String.format("%.2f", Double.parseDouble(response.body().getPrice())));
                     }
                     color.setText(response.body().getColor());
+                    int st = Integer.parseInt(response.body().getStock());
+                    if (st > 0) {
+                        stock.setText("Available");
+                        stock.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    }else
+                    {
+                        stock.setText("Out of Stock");
+                        stock.setTextColor(Color.parseColor("#FFFF6D00"));
+                    }
+
 
                     // current_size = response.body().getCurrent_size();
 

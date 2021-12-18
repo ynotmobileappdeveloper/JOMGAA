@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -52,12 +53,15 @@ public class PhoneVerification extends AppCompatActivity implements View.OnKeyLi
     String name, email, address, pass, otp, new_otp, mob;
     TextView mob_txt, resend;
     ProgressDialog progressDialog;
-    String token = "";
+    String token = "",device_id="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_verification);
+
+        device_id = android.provider.Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please Wait");
         resend = findViewById(R.id.resend);
@@ -156,7 +160,7 @@ public class PhoneVerification extends AppCompatActivity implements View.OnKeyLi
 
     private void verification(String new_otp) {
         progressDialog.show();
-        Call<RegisterUser> call = RetrofitClient.getInstance().getApi().Registeruser(name, otp, new_otp, mob, email, pass, token);
+        Call<RegisterUser> call = RetrofitClient.getInstance().getApi().Registeruser(name, otp, new_otp, mob, email, pass, token,device_id);
         call.enqueue(new Callback<RegisterUser>() {
             @Override
             public void onResponse(Call<RegisterUser> call, Response<RegisterUser> response) {

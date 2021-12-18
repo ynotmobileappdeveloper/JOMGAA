@@ -15,6 +15,7 @@ public class productDetailModel {
     private String color;
     private String original_price;
     private String price;
+    private String stock;
     @SerializedName("size")
     @Expose
     private List<SizeSpinner> size_model = null;
@@ -106,5 +107,13 @@ public class productDetailModel {
 
     public void setImages(List<ImageModel> images) {
         this.images = images;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 }

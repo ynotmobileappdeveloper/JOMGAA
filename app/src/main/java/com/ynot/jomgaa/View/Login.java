@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -49,7 +50,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText email, password;
     ProgressDialog progressDialog;
     LoginUser user;
-    String token = "";
+    String token = "", device_id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,8 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.email);
 
         fogot = findViewById(R.id.forgottt);
+        device_id = android.provider.Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -120,7 +123,7 @@ public class Login extends AppCompatActivity {
 
     private void UserLogin() {
         progressDialog.show();
-        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(email.getText().toString(), token);
+        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(email.getText().toString(), token, device_id);
         call.enqueue(new Callback<LoginUser>() {
             @Override
             public void onResponse(Call<LoginUser> call, Response<LoginUser> response) {
@@ -131,6 +134,7 @@ public class Login extends AppCompatActivity {
                     i.putExtra("user", user);
                     i.putExtra("mob", email.getText().toString());
                     i.putExtra("token", token);
+                    i.putExtra("device_id", device_id);
                     Log.e("otp", response.body().getOtp());
                     startActivity(i);
                 } else {

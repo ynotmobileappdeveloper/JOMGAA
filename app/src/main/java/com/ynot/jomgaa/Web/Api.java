@@ -28,7 +28,8 @@ public interface Api {
     @POST("login")
     Call<LoginUser> userLogin(
             @Field("mob") String user,
-            @Field("token") String token);
+            @Field("token") String token,
+            @Field("device_id") String device);
 
     @FormUrlEncoded
     @POST("registration")
@@ -45,7 +46,8 @@ public interface Api {
             @Field("mob") String mob,
             @Field("email") String email,
             @Field("password") String password,
-            @Field("token") String token);
+            @Field("token") String token,
+            @Field("device_id") String device);
 
     @POST("category")
     Call<CategoryModel> GetCategory();

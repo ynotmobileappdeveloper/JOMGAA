@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/Jomga/app/src/main/res/drawable/btnbg.xml" value="0.2169230769230769" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/drawable/fav.xml" value="0.2169230769230769" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_checkout.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_confirm_address.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_my_order_details.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_order_page_success.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_product_description.xml" value="0.33" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/activity_products_page.xml" value="0.1" />
+        <entry key="..\:/Projects/Jomga/app/src/main/res/layout/allproductlayout.xml" value="0.1" />
         <entry key="..\:/Projects/Jomga/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_categoryitem.xml" value="0.1" />
         <entry key="..\:/Projects/Jomgaa/app/src/main/res/layout/activity_login.xml" value="0.1" />

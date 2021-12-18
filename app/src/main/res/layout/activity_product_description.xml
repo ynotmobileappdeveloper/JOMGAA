@@ -136,6 +136,40 @@
                 app:layout_constraintStart_toStartOf="@+id/brand"
                 app:layout_constraintTop_toBottomOf="@+id/brand" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Visbyroundcf_extrabold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/visbyroundcf_extrabold"
+                android:text="Availability :"
+                android:textColor="#444444"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/brand"
+                app:layout_constraintTop_toBottomOf="@+id/brand" />
+
+            <TextView
+                android:id="@+id/stock"
+                style="@style/Visbyroundcf_extrabold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="24dp"
+                android:fontFamily="@font/visbyroundcf_extrabold"
+                android:text="Men Style Jacket"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/brand"
+                app:layout_constraintTop_toBottomOf="@+id/brand" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
