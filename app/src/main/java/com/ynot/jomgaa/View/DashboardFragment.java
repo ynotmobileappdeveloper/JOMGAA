@@ -16,11 +16,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.viewpagerindicator.CirclePageIndicator;
@@ -46,6 +53,11 @@ import com.ynot.jomgaa.Web.CommonFunction;
 import com.ynot.jomgaa.Web.Constants;
 import com.ynot.jomgaa.Web.RetrofitClient;
 import com.ynot.jomgaa.Web.SharedPrefManager;
+import com.ynot.jomgaa.Web.URLs;
+import com.ynot.jomgaa.Web.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +108,8 @@ public class DashboardFragment extends Fragment {
     RecyclerView feature_rec;
     List<FeatureList> featuremodel = new ArrayList<>();
     FeatureAdapter featureAdapter;
+    LinearLayout notification_layout;
+    TextView notification;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -117,6 +131,8 @@ public class DashboardFragment extends Fragment {
         todays_rec = root.findViewById(R.id.todays_rec);
         deals = root.findViewById(R.id.deals);
         feature_rec = root.findViewById(R.id.feature_rec);
+        notification_layout = root.findViewById(R.id.notification_layout);
+        notification = root.findViewById(R.id.notification);
         feature_rec.setLayoutManager(new LinearLayoutManager(getContext()));
         GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -348,6 +364,7 @@ public class DashboardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         getCategory();
+        //getNotifications();
     }
 
     private void TodaysDeal() {
@@ -413,13 +430,12 @@ public class DashboardFragment extends Fragment {
                 progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     if (response.body().isStatus()) {
-                        allDataAdapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                         Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
 
             @Override
@@ -428,5 +444,40 @@ public class DashboardFragment extends Fragment {
             }
         });
     }
+
+    private void getNotifications() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.GET_NOTIFICATIONS,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("notifcations", response);
+                        try {
+                            JSONObject ob = new JSONObject(response);
+
+                            if (ob.getBoolean("status")) {
+                                notification_layout.setVisibility(View.VISIBLE);
+                                notification.setSelected(true);
+                                notification.setText("*" + ob.getString("content"));
+                                // notification.startAnimation(animation);
+                            } else {
+                                notification_layout.setVisibility(View.GONE);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(90 * 1000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        VolleySingleton.getmInstance(getContext()).addToRequestQueue(stringRequest);
+    }
+
 
 }

@@ -8,4 +8,5 @@
     <color name="text_color">#3F2829</color>
     <color name="checkout_back">#FFFFFF</color>
     <color name="black">#FF000000</color>
+    <color name="icon_color">#47d0ae</color>
 </resources>

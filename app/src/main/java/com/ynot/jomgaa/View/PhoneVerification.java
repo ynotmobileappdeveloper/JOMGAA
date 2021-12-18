@@ -1,5 +1,6 @@
 package com.ynot.jomgaa.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -21,6 +22,9 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.ynot.jomgaa.Model.GetOTP;
 import com.ynot.jomgaa.Model.RegisterUser;
 import com.ynot.jomgaa.Model.User;
@@ -48,6 +52,7 @@ public class PhoneVerification extends AppCompatActivity implements View.OnKeyLi
     String name, email, address, pass, otp, new_otp, mob;
     TextView mob_txt, resend;
     ProgressDialog progressDialog;
+    String token = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +75,18 @@ public class PhoneVerification extends AppCompatActivity implements View.OnKeyLi
         mob = getIntent().getStringExtra("phone");
         pass = getIntent().getStringExtra("pass");
         otp = getIntent().getStringExtra("otp");
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        token = task.getResult();
+                        Log.e("token", token);
+                    }
+                });
         //    mob_txt.setText(" "+email);
 
 
@@ -139,7 +156,7 @@ public class PhoneVerification extends AppCompatActivity implements View.OnKeyLi
 
     private void verification(String new_otp) {
         progressDialog.show();
-        Call<RegisterUser> call = RetrofitClient.getInstance().getApi().Registeruser(name, otp, new_otp, mob, email, pass);
+        Call<RegisterUser> call = RetrofitClient.getInstance().getApi().Registeruser(name, otp, new_otp, mob, email, pass, token);
         call.enqueue(new Callback<RegisterUser>() {
             @Override
             public void onResponse(Call<RegisterUser> call, Response<RegisterUser> response) {

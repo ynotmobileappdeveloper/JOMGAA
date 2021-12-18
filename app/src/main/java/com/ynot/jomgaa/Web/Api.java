@@ -27,7 +27,8 @@ public interface Api {
     @FormUrlEncoded
     @POST("login")
     Call<LoginUser> userLogin(
-            @Field("mob") String user);
+            @Field("mob") String user,
+            @Field("token") String token);
 
     @FormUrlEncoded
     @POST("registration")
@@ -43,7 +44,8 @@ public interface Api {
             @Field("otp") String otp,
             @Field("mob") String mob,
             @Field("email") String email,
-            @Field("password") String password);
+            @Field("password") String password,
+            @Field("token") String token);
 
     @POST("category")
     Call<CategoryModel> GetCategory();

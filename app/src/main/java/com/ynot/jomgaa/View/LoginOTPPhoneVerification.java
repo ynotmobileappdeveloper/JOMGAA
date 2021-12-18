@@ -46,7 +46,7 @@ public class LoginOTPPhoneVerification extends AppCompatActivity implements View
     String from = "";
     Button verify;
     EditText otp1, otp2, otp3, otp4, otp5, otp6;
-    String name, email, address, pass, otp, new_otp, mob;
+    String name, email, address, pass, otp, new_otp, mob, token;
     TextView mob_txt, resend;
     ProgressDialog progressDialog;
     LoginUser user;
@@ -65,6 +65,7 @@ public class LoginOTPPhoneVerification extends AppCompatActivity implements View
         otp4 = findViewById(R.id.otp4);
         user = (LoginUser) getIntent().getSerializableExtra("user");
         mob = getIntent().getStringExtra("mob");
+        token = getIntent().getStringExtra("token");
         otp = user.getOtp();
         back = findViewById(R.id.backkk);
         back.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +182,7 @@ public class LoginOTPPhoneVerification extends AppCompatActivity implements View
 
     private void UserLogin() {
         progressDialog.show();
-        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(mob);
+        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(mob, token);
         call.enqueue(new Callback<LoginUser>() {
             @Override
             public void onResponse(Call<LoginUser> call, Response<LoginUser> response) {

@@ -1,5 +1,6 @@
 package com.ynot.jomgaa.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -19,7 +20,10 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.ynot.jomgaa.Model.LoginUser;
 import com.ynot.jomgaa.Model.User;
 import com.ynot.jomgaa.R;
@@ -45,6 +49,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText email, password;
     ProgressDialog progressDialog;
     LoginUser user;
+    String token = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,18 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.email);
 
         fogot = findViewById(R.id.forgottt);
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        token = task.getResult();
+                        Log.e("token", token);
+                    }
+                });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +120,7 @@ public class Login extends AppCompatActivity {
 
     private void UserLogin() {
         progressDialog.show();
-        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(email.getText().toString());
+        Call<LoginUser> call = RetrofitClient.getInstance().getApi().userLogin(email.getText().toString(), token);
         call.enqueue(new Callback<LoginUser>() {
             @Override
             public void onResponse(Call<LoginUser> call, Response<LoginUser> response) {
@@ -113,6 +130,7 @@ public class Login extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), LoginOTPPhoneVerification.class);
                     i.putExtra("user", user);
                     i.putExtra("mob", email.getText().toString());
+                    i.putExtra("token", token);
                     Log.e("otp", response.body().getOtp());
                     startActivity(i);
                 } else {
