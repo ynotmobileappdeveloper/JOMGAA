@@ -57,6 +57,6 @@ public class URLs {
     public static final String SET_COUPON_CODE = Root_URL + "set_coupon_code";
     public static final String REMOVE_COUPON_CODE = Root_URL + "remove_coupon";
     public static final String RESET_PASSWORD = Root_URL + "reset_password";
-        public static final String GET_NOTIFICATIONS = Root_URL + "get_notifications";
+    public static final String GET_NOTIFICATIONS = Root_URL + "get_notification";
 
 }

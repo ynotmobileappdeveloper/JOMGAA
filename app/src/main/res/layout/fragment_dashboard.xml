@@ -47,8 +47,9 @@
             android:id="@+id/notification_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="#FF6D00"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="#421B78"
             android:visibility="gone">
 
             <TextView
@@ -59,10 +60,10 @@
                 android:fadingEdge="horizontal"
                 android:gravity="center_horizontal"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:padding="6dp"
+                android:padding="10dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:textColor="@color/white"
+                android:textColor="#FFAB00"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 

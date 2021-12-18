@@ -364,7 +364,7 @@ public class DashboardFragment extends Fragment {
     public void onResume() {
         super.onResume();
         getCategory();
-        //getNotifications();
+        getNotifications();
     }
 
     private void TodaysDeal() {
@@ -472,7 +472,7 @@ public class DashboardFragment extends Fragment {
                 }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.e("error", new String(error.networkResponse.data));
             }
         });
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(90 * 1000, 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
